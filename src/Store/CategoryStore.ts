@@ -27,3 +27,4 @@ export const categoryStore = configureStore({
 });
 
 export type AppDispatch = typeof categoryStore.dispatch;
+export type RootState = ReturnType<typeof categoryStore.getState>;
