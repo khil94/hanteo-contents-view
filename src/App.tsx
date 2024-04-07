@@ -1,17 +1,17 @@
 import { Provider } from "react-redux";
 import "./App.css";
-import ContentList from "./Section/ContentListSection";
-import Footer from "./Section/FooterSection";
-import Header from "./Section/HeaderSection";
+import ContentListSection from "./Section/ContentListSection";
+import FooterSection from "./Section/FooterSection";
+import HeaderSection from "./Section/HeaderSection";
 import { categoryStore } from "./Store/CategoryStore";
 
 function App() {
   return (
     <>
       <Provider store={categoryStore}>
-        <Header />
-        <ContentList />
-        <Footer />
+        <HeaderSection />
+        <ContentListSection />
+        <FooterSection />
       </Provider>
     </>
   );
