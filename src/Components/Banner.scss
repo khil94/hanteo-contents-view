@@ -1,32 +1,43 @@
+@use "../style/common" as common;
 @import "../style/variables";
 
-.banner_wrapper {
-  width: 380px;
-  border: 1px solid black;
-  height: 200px;
-  margin: 0 4px;
-  border-radius: 6px;
-  position: relative;
+.banner_outer_wrapper {
+  width: 100%;
+  flex: none;
+  padding: 0 12px;
+  @include common.flex-center();
 
-  .banner_processing {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background-color: $bold-main-color;
-    color: white;
-    padding: 4px;
-    border-radius: 8px;
-    font-weight: bold;
-    &.expired {
-      background-color: $default-skeleton-color;
+  .banner_wrapper {
+    @include common.flex-center();
+    width: 100%;
+    border: 1px solid black;
+    height: 200px;
+    // margin: 0 2%;
+    padding: 10px 0 15px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    position: relative;
+
+    .banner_processing {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: $bold-main-color;
+      color: white;
+      padding: 4px;
+      border-radius: 8px;
+      font-weight: bold;
+      &.expired {
+        background-color: $default-skeleton-color;
+      }
     }
-  }
-  a {
-    display: block;
-    height: 100%;
-    .banner_img {
-      width: 100%;
-      border-bottom: 1px solid black;
+    a {
+      display: block;
+      height: 100%;
+      .banner_img {
+        width: 100%;
+        border-bottom: 1px solid black;
+      }
     }
   }
 }
