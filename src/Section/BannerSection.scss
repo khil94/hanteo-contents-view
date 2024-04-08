@@ -1,0 +1,8 @@
+@use "../style/common" as common;
+@import "../style/variables";
+.banner_section_wrapper {
+  padding: 8px 0;
+  .banner_list_wrapper {
+    @include common.flex-center("row");
+  }
+}

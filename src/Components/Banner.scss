@@ -1,0 +1,32 @@
+@import "../style/variables";
+
+.banner_wrapper {
+  width: 380px;
+  border: 1px solid black;
+  height: 200px;
+  margin: 0 4px;
+  border-radius: 6px;
+  position: relative;
+
+  .banner_processing {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: $bold-main-color;
+    color: white;
+    padding: 4px;
+    border-radius: 8px;
+    font-weight: bold;
+    &.expired {
+      background-color: $default-skeleton-color;
+    }
+  }
+  a {
+    display: block;
+    height: 100%;
+    .banner_img {
+      width: 100%;
+      border-bottom: 1px solid black;
+    }
+  }
+}

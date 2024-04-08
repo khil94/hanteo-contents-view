@@ -1,4 +1,4 @@
-import { ICategory } from "../types/types";
+import { IBanner, ICategory } from "../types/types";
 
 export const CATEGORIES: ReadonlyArray<ICategory> = [
   {
@@ -18,5 +18,23 @@ export const CATEGORIES: ReadonlyArray<ICategory> = [
   },
   {
     name: "충전소",
+  },
+];
+
+export const BANNERS: ReadonlyArray<IBanner> = [
+  {
+    url: "",
+    imgUrl: "",
+    isInProgress: true,
+  },
+  {
+    url: "",
+    imgUrl: "",
+    isInProgress: false,
+  },
+  {
+    url: "",
+    imgUrl: "",
+    isInProgress: true,
   },
 ];
