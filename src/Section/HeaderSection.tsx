@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { CATEGORIES } from "../Constants/Enum";
 import { RootState, selector } from "../Store/CategoryStore";
+import BannerSection from "./BannerSection";
 import "./HeaderSection.scss";
 
 export default function HeaderSection() {
@@ -28,6 +29,7 @@ export default function HeaderSection() {
           );
         })}
       </div>
+      <BannerSection />
     </header>
   );
 }
