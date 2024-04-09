@@ -10,9 +10,8 @@
   .banner_wrapper {
     @include common.flex-center();
     width: 100%;
-    border: 1px solid black;
+    box-shadow: $default-skeleton-color 0.3px 0.3px;
     height: 200px;
-    // margin: 0 2%;
     padding: 10px 0 15px;
     border-radius: 6px;
     box-sizing: border-box;
