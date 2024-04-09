@@ -34,6 +34,12 @@ export default function ContentListSection() {
     getMockData(CATEGORIES[category].url, currPage);
   }, [currPage]);
 
+  useEffect(() => {
+    setData([]);
+    setCurrPage(-1);
+    getMockData(CATEGORIES[category].url, currPage);
+  }, [category]);
+
   function categoryHandler(idx: number) {
     dispatch(selector(idx));
   }
