@@ -1,6 +1,6 @@
 import { TouchEventHandler, useEffect, useRef, useState } from "react";
-import Banner from "../Components/Banner";
-import { BANNERS } from "../Constants/Enum";
+import Banner from "../components/Banner";
+import { BANNERS } from "../constants/Enum";
 import { IBanner } from "../types/types";
 import "./BannerSection.scss";
 
@@ -19,7 +19,6 @@ export default function BannerSection() {
 
   useEffect(() => {
     const autoSlide = setInterval(() => {
-      console.log("timeout run");
       handleSlide(1);
     }, 5000);
     return () => clearTimeout(autoSlide);

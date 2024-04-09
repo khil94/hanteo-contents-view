@@ -1,9 +1,9 @@
 import { Provider } from "react-redux";
 import "./App.css";
-import ContentListSection from "./Section/ContentListSection";
-import FooterSection from "./Section/FooterSection";
-import HeaderSection from "./Section/HeaderSection";
-import { categoryStore } from "./Store/CategoryStore";
+import ContentListSection from "./section/ContentListSection";
+import FooterSection from "./section/FooterSection";
+import HeaderSection from "./section/HeaderSection";
+import { categoryStore } from "./store/CategoryStore";
 
 function App() {
   return (

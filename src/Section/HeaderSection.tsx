@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { CATEGORIES } from "../Constants/Enum";
-import { RootState, selector } from "../Store/CategoryStore";
+import { CATEGORIES } from "../constants/Enum";
+import { RootState, selector } from "../store/CategoryStore";
 import BannerSection from "./BannerSection";
 import "./HeaderSection.scss";
 
