@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { TouchEventHandler, useEffect, useRef, useState } from "react";
 import Banner from "../Components/Banner";
 import { BANNERS } from "../Constants/Enum";
 import { IBanner } from "../types/types";
@@ -8,6 +8,8 @@ export default function BannerSection() {
   const [idx, setIdx] = useState(1);
   const wrapper = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<ReadonlyArray<IBanner>>(BANNERS);
+  let touchStartX: number;
+  let touchEndX: number;
 
   useEffect(() => {
     if (data.length !== 0) {
@@ -19,8 +21,7 @@ export default function BannerSection() {
     const autoSlide = setInterval(() => {
       console.log("timeout run");
       handleSlide(1);
-    }, 3000);
-
+    }, 5000);
     return () => clearTimeout(autoSlide);
   });
 
@@ -29,8 +30,6 @@ export default function BannerSection() {
       wrapper.current.style.transform = `translateX(-${idx}00%)`;
     }
   }, [idx]);
-
-  console.log(idx);
 
   function moveCarousel(newIdx: number) {
     setTimeout(() => {
@@ -50,7 +49,6 @@ export default function BannerSection() {
     }
 
     setIdx((prev) => {
-      console.log("added", newIdx);
       return prev + direction;
     });
 
@@ -59,9 +57,46 @@ export default function BannerSection() {
     }
   }
 
+  const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
+    touchStartX = e.nativeEvent.touches[0].clientX;
+  };
+
+  const handleTouchMove: TouchEventHandler<HTMLDivElement> = (e) => {
+    const currTouchX = e.nativeEvent.changedTouches[0].clientX;
+    if (wrapper.current !== null) {
+      wrapper.current.style.transition = "";
+      wrapper.current.style.transform = `translateX(calc(-${idx}00% - ${
+        (touchStartX - currTouchX) * 2 || 0
+      }px))`;
+    }
+  };
+
+  const handleTouchEnd: TouchEventHandler<HTMLDivElement> = (e) => {
+    touchEndX = e.nativeEvent.changedTouches[0].clientX;
+    console.log("touchstart, touchend", touchStartX, touchEndX);
+    if (Math.abs(touchEndX - touchStartX) > 100) {
+      if (touchStartX >= touchEndX) {
+        handleSlide(1);
+      } else {
+        handleSlide(-1);
+      }
+    } else {
+      if (wrapper.current !== null) {
+        wrapper.current.style.transition = "all 0.5s ease-in-out";
+        wrapper.current.style.transform = `translateX(calc(-${idx}00%))`;
+      }
+    }
+  };
+
   return (
     <div className="banner_section_wrapper">
-      <div className="banner_list_wrapper" ref={wrapper}>
+      <div
+        className="banner_list_wrapper"
+        ref={wrapper}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {data.map((v) => {
           return <Banner {...v} />;
         })}
