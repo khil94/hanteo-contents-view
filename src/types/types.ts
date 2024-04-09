@@ -1,6 +1,6 @@
 export interface ICategory {
   name: string;
-  url?: string;
+  url: string;
 }
 
 export interface IBanner {
