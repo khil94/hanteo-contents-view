@@ -9,4 +9,18 @@
     width: 100%;
     display: flex;
   }
+  .banner_position_wrapper {
+    padding: 8px 0;
+    @include common.flex-center("row");
+    .banner_position {
+      margin: 0 4px;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      background-color: $default-skeleton-color;
+      &.current_position {
+        background-color: $bold-main-color;
+      }
+    }
+  }
 }

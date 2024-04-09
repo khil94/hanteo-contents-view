@@ -97,11 +97,22 @@ export default function BannerSection() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {data.map((v) => {
-          return <Banner {...v} />;
+        {data.map((v, i) => {
+          return <Banner key={`banner_${v.imgUrl}_${i}`} {...v} />;
         })}
       </div>
-      <div className="banner_position_wrapper"></div>
+      <div className="banner_position_wrapper">
+        {BANNERS.map((_, i) => {
+          return (
+            <div
+              key={`banner_position_${i}`}
+              className={`banner_position ${
+                (i + 1) % 3 === idx % 3 ? "current_position" : ""
+              }`}
+            ></div>
+          );
+        })}
+      </div>
     </div>
   );
 }
