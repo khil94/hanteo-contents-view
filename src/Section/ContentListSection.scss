@@ -1,0 +1,9 @@
+@use "../style/common" as common;
+@import "../style/variables";
+.content_list_section_wrapper {
+  background-color: $default-border-color;
+  height: 100%;
+  .content_list_wrapper {
+    @include common.flex-center();
+  }
+}

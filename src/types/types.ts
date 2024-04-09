@@ -8,3 +8,9 @@ export interface IBanner {
   imgUrl: string;
   isInProgress: boolean;
 }
+
+export interface IMockupData {
+  url: string;
+  thumbnailUrl: string;
+  title: string;
+}
