@@ -53,10 +53,14 @@ export default function ContentListSection() {
 
   return (
     <div className="content_list_section_wrapper">
-      {CATEGORIES[category].name}
+      <div className="content_list_title_wrapper">
+        {CATEGORIES[category].name}
+      </div>
       <div className="content_list_wrapper">
         {data.map((v, i) => {
-          return <Content key={`content_${v.title}_${i}`} data={v} />;
+          return (
+            <Content key={`content_${v.title}_${i}`} data={v} rank={i + 1} />
+          );
         })}
         {isLoadingData &&
           Array(10)
