@@ -7,6 +7,13 @@ export interface IBanner {
   url: string;
   imgUrl: string;
   isInProgress: boolean;
+  detail: IBannerDetail;
+}
+
+export interface IBannerDetail {
+  title: string;
+  expireAt: Date;
+  startAt: Date;
 }
 
 export interface IMockupData {

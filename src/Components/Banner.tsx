@@ -1,4 +1,5 @@
 import { IBanner } from "../types/types";
+import { getYYYYMMDDHHmm, makeEllipsis } from "../utils/generalFunctions";
 import "./Banner.scss";
 
 export default function Banner(data: IBanner) {
@@ -12,11 +13,18 @@ export default function Banner(data: IBanner) {
           }}
         >
           <img
-            height={140}
             className="banner_img"
-            src={data.imgUrl}
+            src={"/main_banner_1_ko.webp"}
             alt={data.imgUrl}
           />
+          <div className="banner_detail_wrapper">
+            <div className="banner_detail_title">
+              {makeEllipsis(data.detail.title, 27)}
+            </div>
+            <div className="banner_detail_date">{`${getYYYYMMDDHHmm(
+              data.detail.startAt
+            )} ~ ${getYYYYMMDDHHmm(data.detail.expireAt)}(KST)`}</div>
+          </div>
         </a>
         <div
           className={`banner_processing ${data.isInProgress ? "" : "expired"}`}

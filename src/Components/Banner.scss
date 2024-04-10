@@ -12,8 +12,7 @@
     width: 100%;
     box-shadow: $default-skeleton-color 0.3px 0.3px;
     height: 200px;
-    padding: 10px 0 15px;
-    border-radius: 6px;
+    border-radius: 8px;
     box-sizing: border-box;
     position: relative;
 
@@ -26,6 +25,7 @@
       padding: 4px;
       border-radius: 8px;
       font-weight: bold;
+
       &.expired {
         background-color: $default-skeleton-color;
       }
@@ -33,9 +33,31 @@
     a {
       display: block;
       height: 100%;
+      width: 100%;
+      text-decoration: none;
+      color: black;
+
       .banner_img {
-        width: 100%;
-        border-bottom: 1px solid black;
+        max-width: 100%;
+        height: 70%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      .banner_detail_wrapper {
+        padding: 12px;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .banner_detail_title {
+          font-weight: bold;
+          letter-spacing: -0.5px;
+          font-size: 0.8rem;
+        }
+        .banner_detail_date {
+          text-align: end;
+          font-size: 0.7rem;
+        }
       }
     }
   }
