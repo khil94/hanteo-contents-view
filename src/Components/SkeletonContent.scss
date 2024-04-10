@@ -13,6 +13,7 @@
       height: 48px;
       border-radius: 6px;
       @include common.skeleton();
+      margin-right: 12px;
     }
     .skeleton_content_title {
       width: 100%;
