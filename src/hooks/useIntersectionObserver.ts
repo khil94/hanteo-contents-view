@@ -1,20 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export function useIntersectionObserver(target: string, onObserve: () => void) {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          onObserve();
-        }
-      });
+  const observerCallback: IntersectionObserverCallback = (entries, _) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        onObserve();
+      }
     });
-    const els = document.querySelector(target) as HTMLElement;
+  };
+  const observerRef = useRef<IntersectionObserver>(
+    new IntersectionObserver(observerCallback)
+  );
+  useEffect(() => {
+    connect();
 
-    observer.observe(els);
-
-    return () => observer.disconnect();
+    return () => observerRef.current.disconnect();
   }, []);
 
-  return;
+  function disconnect() {
+    observerRef.current.disconnect();
+  }
+
+  function connect() {
+    const el = document.querySelector(target);
+    if (el) {
+      observerRef.current.observe(el);
+    }
+  }
+
+  return { observerRef, disconnect, connect };
 }
