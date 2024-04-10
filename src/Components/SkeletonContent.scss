@@ -1,0 +1,34 @@
+@use "../style/common" as common;
+@import "../style/variables";
+
+@keyframes loading {
+  0% {
+    transform: translateX(0);
+  }
+  50%,
+  100% {
+    transform: translateX(460px);
+  }
+}
+
+.skeleton_content_wrapper {
+  width: 100%;
+  padding: 12px 5%;
+
+  .skeleton_content {
+    width: 100%;
+    @include common.flex-center("row");
+
+    .skeleton_content_img {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      @include common.skeleton();
+    }
+    .skeleton_content_title {
+      width: 100%;
+      height: 52px;
+      @include common.skeleton();
+    }
+  }
+}
