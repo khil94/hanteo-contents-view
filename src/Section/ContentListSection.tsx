@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Content from "../components/Content";
 import SkeletonContent from "../components/SkeletonContent";
 import { CATEGORIES } from "../constants/Enum";
@@ -14,7 +14,6 @@ export default function ContentListSection() {
   const [isLoadingData, setIsLoadingData] = useState(true);
 
   const category = useSelector((state: RootState) => state.category.value);
-  const dispatch = useDispatch();
 
   const handleObserve = async () => {
     setCurrPage((prev) => prev + 1);
@@ -46,7 +45,6 @@ export default function ContentListSection() {
       setData([]);
       setCurrPage(0);
       observer.connect();
-      console.log("hi", document.querySelector("#pivot"));
       getMockData(CATEGORIES[category].url, currPage);
     }
   }, [category]);
