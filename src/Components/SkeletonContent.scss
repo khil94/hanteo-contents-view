@@ -1,16 +1,5 @@
 @use "../style/common" as common;
 @import "../style/variables";
-
-@keyframes loading {
-  0% {
-    transform: translateX(0);
-  }
-  50%,
-  100% {
-    transform: translateX(460px);
-  }
-}
-
 .skeleton_content_wrapper {
   width: 100%;
   padding: 12px 5%;
