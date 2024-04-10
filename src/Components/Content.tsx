@@ -1,7 +1,10 @@
 import { IMockupData } from "../types/types";
 import "./Content.scss";
 
-export default function Content(data: IMockupData) {
+interface IProp {
+  data: IMockupData;
+}
+export default function Content({ data }: IProp) {
   return (
     <div className="content_wrapper">
       <a className="content" href={data.url}>
