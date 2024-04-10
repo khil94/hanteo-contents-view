@@ -9,22 +9,26 @@
 
 @keyframes shine {
   to {
-    background-position: 140% 0, 200px 0;
+    background-position: 150% 0;
   }
 }
 
-@mixin skeleton($height: "auto") {
+@mixin skeleton($width: 300) {
   border-radius: 15px;
-  height: $height;
+  // height: $height;
   background-repeat: repeat-x;
   background-image: linear-gradient(
     100deg,
     rgba(255, 255, 255, 0),
     rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0) 90%
+    rgba(255, 255, 255, 0) 80%
   );
   background-color: $default-border-color;
-  background-size: 200px 70px;
-  background-position: 0 0, 200px 0;
-  animation: shine 1s infinite linear;
+  @if ($width < 200) {
+    background-size: 200px 70px;
+  } @else {
+    background-size: 60% 70px;
+  }
+  background-position: 0 0;
+  animation: shine 1.5s infinite linear;
 }
