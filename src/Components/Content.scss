@@ -6,6 +6,7 @@
   .content {
     width: 100%;
     text-decoration: none;
+    color: black;
     @include common.flex-center("row");
 
     img {
