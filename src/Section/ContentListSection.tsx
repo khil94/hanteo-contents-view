@@ -15,7 +15,7 @@ export default function ContentListSection() {
 
   const category = useSelector((state: RootState) => state.category.value);
 
-  const handleObserve = async () => {
+  const handleObserve = () => {
     setCurrPage((prev) => prev + 1);
   };
 
