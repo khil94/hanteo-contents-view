@@ -129,6 +129,13 @@ table {
 }
 
 html {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #ddd;
+}
+body {
+  background-color: white;
   max-width: 425px;
 }
 * {
