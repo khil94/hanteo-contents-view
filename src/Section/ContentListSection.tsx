@@ -9,7 +9,7 @@ import { IMockupData } from "../types/types";
 import "./ContentListSection.scss";
 
 export default function ContentListSection() {
-  const [currPage, setCurrPage] = useState(-1);
+  const [currPage, setCurrPage] = useState(0);
   const [data, setData] = useState<IMockupData[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
 
@@ -27,7 +27,6 @@ export default function ContentListSection() {
         .then((target) => {
           const extraArr = target.slice(page * 10, (page + 1) * 10);
           if (extraArr.length === 0 && page >= 0) {
-            console.log(extraArr, page);
             observer.disconnect();
           }
           setData([...data, ...extraArr]);
@@ -41,13 +40,18 @@ export default function ContentListSection() {
   }, [currPage]);
 
   useEffect(() => {
-    if (data.length !== 0) {
-      setData([]);
-      setCurrPage(0);
-      observer.connect();
-      getMockData(CATEGORIES[category].url, currPage);
-    }
+    setData([]);
+    setCurrPage(0);
+    observer.connect();
   }, [category]);
+
+  useEffect(() => {
+    if (data.length === 0) {
+      if (currPage === 0) {
+        getMockData(CATEGORIES[category].url, currPage);
+      }
+    }
+  }, [data]);
 
   const observer = useIntersectionObserver("#pivot", handleObserve);
 

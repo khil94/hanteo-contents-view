@@ -10,6 +10,8 @@
   }
   .content_list_wrapper {
     @include common.flex-center();
+    justify-content: flex-start;
+    min-height: 100vh;
   }
   #pivot {
     position: absolute;
