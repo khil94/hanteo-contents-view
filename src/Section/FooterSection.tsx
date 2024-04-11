@@ -1,3 +1,5 @@
+import "./FooterSection.scss";
+
 export default function FooterSection() {
-  return <></>;
+  return <div className="footer_section_wrapper">{"content"}</div>;
 }

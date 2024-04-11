@@ -1,0 +1,11 @@
+@use "../style/common" as common;
+@import "../style/variables";
+
+.footer_section_wrapper {
+  height: 40px;
+  width: 100%;
+  background-color: $bold-main-color;
+  @include common.flex-center();
+  font-weight: bold;
+  color: $color-white;
+}
