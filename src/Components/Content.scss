@@ -7,7 +7,7 @@
     width: 100%;
     padding: 12px 5%;
     text-decoration: none;
-    color: black;
+    color: $color-black;
     @include common.flex-center("row");
 
     img {
@@ -19,7 +19,7 @@
       width: 100%;
       height: 52px;
       padding: 0 12px;
-      background-color: white;
+      background-color: $color-white;
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
       @include common.flex-center("row");
